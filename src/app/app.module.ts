@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
 
 import { baseURL } from '../shared/baseurl';
 import { FavoriteProvider } from '../providers/favorite/favorite';
+import { FavoritesPage} from '../pages/favorites/favorites';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     AboutPage,
     MenuPage,
     ContactPage,
-    DishdetailPage
+    DishdetailPage,
+    FavoritesPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { FavoriteProvider } from '../providers/favorite/favorite';
     AboutPage,
     MenuPage,
     ContactPage,
-    DishdetailPage
+    DishdetailPage,
+    FavoritesPage
   ],
   providers: [
     StatusBar,
