@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { Dish } from '../../shared/dish';
 import { Comment } from '../../shared/comment';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
+import { ActionSheetController } from 'ionic-angular'
+import { CommentPage } from '../../pages/comment/comment';
+
 /**
  * Generated class for the DishdetailPage page.
  *
@@ -20,8 +23,10 @@ export class DishdetailPage {
   avgstars: string;
   numcomments: number;
   favorite: boolean;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  dishcopy=[];
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionSheetCtrl: ActionSheetController,
     @Inject('BaseURL') private BaseURL,
     private favoriteservice: FavoriteProvider,
     private toastCtrl: ToastController) {
@@ -36,6 +41,9 @@ export class DishdetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DishdetailPage');
   }
+  onDidDismiss(comment) {
+    console.log(comment);
+  }
   addToFavorites() {
     console.log('Adding to Favorites', this.dish.id);
     this.favorite = this.favoriteservice.addFavorite(this.dish.id);
@@ -44,5 +52,32 @@ export class DishdetailPage {
       position: 'middle',
       duration: 3000
     }).present();
+  }
+  openMore() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Select Action',
+      buttons: [
+        {
+          text: 'Add to Favorites',
+          handler: () => {
+            this.addToFavorites();
+          }
+        },
+        {
+          text: 'Add Comment',
+          handler: () => {
+            this.navCtrl.push(CommentPage);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 }

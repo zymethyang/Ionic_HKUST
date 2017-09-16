@@ -1,0 +1,31 @@
+<!--
+  Generated template for the CommentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary-pale">
+    <ion-title>Add Comment</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="comment" (ngSubmit)="dismiss()">
+    <ion-item>
+      <ion-label color="primary"></ion-label>
+      <ion-input placeholder="Your Name" formControlName="author"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-range min="0" max="5" step="1" snaps="true" color="primary" formControlName="rating">
+          <ion-icon range-left name="md-sad"></ion-icon>
+          <ion-icon range-right name="md-happy"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-textarea placeholder="Your Comment" id="comment" formControlName="comment"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!comment.valid">Submit</button>
+  </form>
+</ion-content>
