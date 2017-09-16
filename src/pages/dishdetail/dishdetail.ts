@@ -80,4 +80,7 @@ export class DishdetailPage {
     });
     actionSheet.present();
   }
+  test(){
+    console.log(this.dish.comments);
+  }
 }
