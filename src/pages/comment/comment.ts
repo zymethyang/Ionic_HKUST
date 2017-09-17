@@ -35,15 +35,12 @@ export class CommentPage {
   }
   dismiss() {
     this.commentData = this.comment.value;
-    //this.commentData.date = new Date().toISOString();
     console.log(this.commentData);
     this.comment.reset({
       author: '',
       rating: 5,
       comment: '',
     });
-    this.dish.comments.push(this.comment.value);
-    //console.log(this.commentData.author);
   }
 
 }
