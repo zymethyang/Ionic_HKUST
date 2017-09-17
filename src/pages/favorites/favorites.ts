@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { IonicPage, NavController, NavParams, ItemSliding, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { Dish } from '../../shared/dish';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 /**
  * Generated class for the FavoritesPage page.
@@ -24,6 +25,7 @@ export class FavoritesPage implements OnInit {
     private loadingCtrl: LoadingController,
     private alertCtrl: AlertController,
     private favoriteservice: FavoriteProvider,
+    private localNotifications: LocalNotifications,
     @Inject('BaseURL') private BaseURL,
     ) {
   }
