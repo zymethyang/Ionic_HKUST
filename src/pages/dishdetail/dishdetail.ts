@@ -6,6 +6,7 @@ import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { ActionSheetController } from 'ionic-angular'
 import { CommentPage } from '../../pages/comment/comment';
 
+
 /**
  * Generated class for the DishdetailPage page.
  *
@@ -79,8 +80,5 @@ export class DishdetailPage {
       ]
     });
     actionSheet.present();
-  }
-  test(){
-    console.log(this.dish.comments);
   }
 }
