@@ -18,6 +18,8 @@ import { PromotionProvider } from '../providers/promotion/promotion';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 import { HttpModule } from '@angular/http';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { baseURL } from '../shared/baseurl';
 import { FavoriteProvider } from '../providers/favorite/favorite';
@@ -68,7 +70,9 @@ import { LoginPage } from '../pages/login/login';
     ProcessHttpmsgProvider,
     { provide: 'BaseURL', useValue: baseURL },
     FavoriteProvider,
-    LocalNotifications
+    LocalNotifications,
+    EmailComposer,
+    SocialSharing
   ]
 })
 export class AppModule {}
