@@ -25,8 +25,11 @@
     <img src="{{image}}" />
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col col-4>
           <button ion-button small (click)="getPicture()">Take Picture</button>
+        </ion-col>
+        <ion-col col-4 offset-4>
+          <button ion-button small (click)="getFromLibrary()">Get From Library</button>
         </ion-col>
       </ion-row>
     </ion-grid>
